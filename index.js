@@ -1,7 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+var cookieParser = require('cookie-parser');
 var userRoute = require('./routes/user.route');
+var authRoute = require('./routes/auth.route');
 
 var port = 3000;
 var app = express();
@@ -20,7 +21,7 @@ app.get('/', function(req, res){
 });
 
 app.use('/users', userRoute);
-
+app.use('/auth', authRoute);
 app.listen(port, function(){
     console.log('server is running on port: ' + port);
 });
