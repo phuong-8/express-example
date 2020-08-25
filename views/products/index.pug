@@ -1,0 +1,29 @@
+extends ../layout/base
+block content
+    h1.text-center Products
+    
+  
+    each product in products   
+        .card(style='width:200px;').d-inline-flex.m-2
+            img.card-img-top(src=product.image)
+            .card-body
+                h5.card-title= product.name
+                p.card-text= product.decription
+                a.btn.btn-primary Buy
+
+    nav(aria-label='Page navigation')
+        - var n = 0;
+        ul.pagination
+            li.page-item
+                a.page-link(href='?page=' + ((page - 1)  < 1 ? 1 : page - 1) , aria-label='Previous')
+                    span(aria-hidden='true') &laquo;
+            while n++ < length
+                if page === n
+                    li.page-item.active
+                        a.page-link(href='?page='+ n)= n
+                else
+                    li.page-item
+                        a.page-link(href='?page='+ n)= n
+            li.page-item
+                a.page-link(href='?page=' + ((page + 1)  > length ? page : page + 1) , aria-label='Next')
+                    span(aria-hidden='true') &raquo;

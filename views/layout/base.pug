@@ -2,12 +2,17 @@ html
     head  
         link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
     body
-        nav.navbar.navbar-light.bg-light
+        nav.navbar.navbar-light.bg-dark
             ul.d-flex.nav
-                li.nav-item.active
+                li.btn.btn-light.active.m-2
                     a.nav-link(href='/users') Home
-                li.nav-item
+                li.btn.btn-light.m-2
                     a.nav-link(href='/users/create') Create user
-                li.nav-item
+                li.btn.btn-light.m-2
+                    a.nav-link(href='/products') Product
+                li.btn.btn-light.m-2
                     a.nav-link(href='/auth/login') Login
-        block content
+            if user
+                p.btn.btn-light.disabled= user.name
+        .container
+            block content
