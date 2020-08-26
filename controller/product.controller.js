@@ -2,7 +2,7 @@ var db = require('../db');
 
 module.exports.product = function(req, res){
     var page = parseInt(req.query.page) || 1;
-    var perPage = 6;
+    var perPage = 10;
 
     var start = (page - 1) * perPage;
     var end = page*perPage;

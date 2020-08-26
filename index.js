@@ -7,6 +7,7 @@ var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
 var middleRequire = require('./middlewares/auth.middleware');
 var productRoute = require('./routes/product.route');
+var seesionMiddleware = require('./middlewares/session.middleware');
 
 var port = 3000;
 var app = express();
@@ -15,6 +16,7 @@ app.set('./views', 'views');
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(seesionMiddleware);
 //truy cao file tinh
 app.use(express.static('public'));
 

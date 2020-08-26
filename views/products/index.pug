@@ -9,7 +9,7 @@ block content
             .card-body
                 h5.card-title= product.name
                 p.card-text= product.decription
-                a.btn.btn-primary Buy
+                a.btn.btn-primary(href='/cart/add/'+ product.id) Add to cart
 
     nav(aria-label='Page navigation')
         - var n = 0;
