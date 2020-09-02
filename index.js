@@ -5,9 +5,11 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
-var middleRequire = require('./middlewares/auth.middleware');
 var productRoute = require('./routes/product.route');
+var cartRoute = require('./routes/cart.route');
+
 var seesionMiddleware = require('./middlewares/session.middleware');
+var middleRequire = require('./middlewares/auth.middleware');
 
 var port = 3000;
 var app = express();
@@ -26,9 +28,11 @@ app.get('/', function(req, res){
     });
 });
 
-app.use('/users',middleRequire.requireAuth, userRoute);
+app.use('/users', middleRequire.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
+app.use('/cart', cartRoute);
+
 app.listen(port, function(){
     console.log('server is running on port: ' + port);
 });

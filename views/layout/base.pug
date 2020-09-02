@@ -1,18 +1,19 @@
-html
-    head  
-        link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
-    body
-        nav.navbar.navbar-light.bg-dark
-            ul.d-flex.nav
-                li.btn.btn-light.active.m-2
-                    a.nav-link(href='/users') Home
-                li.btn.btn-light.m-2
-                    a.nav-link(href='/users/create') Create user
-                li.btn.btn-light.m-2
-                    a.nav-link(href='/products') Product
-                li.btn.btn-light.m-2
-                    a.nav-link(href='/auth/login') Login
-            if user
-                p.btn.btn-light.disabled= user.name
-        .container
-            block content
+head  
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+body
+    nav.navbar.navbar-light.bg-dark
+        ul.nav
+            li.mr-2
+                a.btn.btn-light(href='/users') Home
+            li.mr-2
+                a.btn.btn-light(href='/users/create') Create user
+            li.mr-2
+                a.btn.btn-light(href='/products') Product
+            li.mr-2
+                a.btn.btn-light(href='/cart') Cart
+        if user
+            .btn.btn-light.disabled= user.name
+        else
+            a.btn.btn-primary(href='/auth/login') Login
+    .container
+        block content

@@ -1,8 +1,6 @@
 extends ../layout/base
 block content
     h1.text-center Products
-    
-  
     each product in products   
         .card(style='width:200px;').d-inline-flex.m-2
             img.card-img-top(src=product.image)
