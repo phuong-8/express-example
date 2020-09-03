@@ -1,0 +1,22 @@
+extends ../layout/base.pug
+block content
+    .container 
+        h1.text-center Đăng kí
+        if errors
+            each error in errors
+                .alert.alert-danger= error
+
+        form.w-75.m-auto(action="/auth/logup", method="POST")
+            .form-group
+                label(for="email") Email
+                input#email.form-control(type="email", name
+                ="email", value= values ? values.email : "", autofocus)
+            .form-group
+                label(for="password1") Mật khẩu
+                input#password1.form-control(type="password", name
+                ="password1", value= "")
+            .form-group
+                label(for="password2") Nhập lại mật khẩu
+                input#password2.form-control(type="password", name
+                ="password2", value= "")
+            button.btn.btn-primary Đăng kí

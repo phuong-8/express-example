@@ -1,0 +1,27 @@
+extends ../layout/base.pug
+block content
+    .container 
+        h1.text-center Infomation
+        form.w-75.m-auto(action="", method="POST")
+            .form-group
+                label(for="avatar") Avatar
+                input.form-control-file#avatar(type="file", name
+                ="avatar")
+            .form-group
+                label(for="name") Name
+                input#name.form-control(type="email", name
+                ="name", placeholder= user.name)
+            .form-group
+                label(for="phone") Phone
+                input#phone.form-control(type="text", name
+                ="phone", placeholder= user.phone)
+            .form-group
+                label(for="email") Email
+                input#email.form-control(type="email", name
+                ="email", placeholder= user.email)
+            .form-group
+                label(for="password") Passwrod
+                input#passwrod.form-control(type="password", name
+                ="password")
+
+            button.btn.btn-primary Thay đổi

@@ -4,16 +4,19 @@ body
     nav.navbar.navbar-light.bg-dark
         ul.nav
             li.mr-2
-                a.btn.btn-light(href='/users') Home
-            li.mr-2
-                a.btn.btn-light(href='/users/create') Create user
+                a.btn.btn-light(href='/') Home
             li.mr-2
                 a.btn.btn-light(href='/products') Product
             li.mr-2
                 a.btn.btn-light(href='/cart') Cart
         if user
-            .btn.btn-light.disabled= user.name
+            .nav.justify-content-end
+                a.btn.btn-primary.mr-2(href='/auth/info') Info
+                .btn.btn-light.disabled.rounded-pill= user.name
         else
-            a.btn.btn-primary(href='/auth/login') Login
+            .nav.justify-content-end
+                a.btn.btn-primary.mr-2(href='/auth/logup') Log up
+                a.btn.btn-primary(href='/auth/login') Log in
+                
     .container
         block content

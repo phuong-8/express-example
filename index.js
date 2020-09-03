@@ -22,16 +22,13 @@ app.use(seesionMiddleware);
 //truy cao file tinh
 app.use(express.static('public'));
 
-app.get('/', function(req, res){
-    res.render('index', {
-        name: 'Phuong'
-    });
+app.get('/', middleRequire.loginFinish, function(req, res){
+    res.render('index');
 });
-
-app.use('/users', middleRequire.requireAuth, userRoute);
 app.use('/auth', authRoute);
-app.use('/products', productRoute);
-app.use('/cart', cartRoute);
+app.use('/users', middleRequire.requireAuth, userRoute);
+app.use('/products', middleRequire.loginFinish, productRoute);
+app.use('/cart', middleRequire.loginFinish, cartRoute);
 
 app.listen(port, function(){
     console.log('server is running on port: ' + port);
